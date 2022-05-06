@@ -3,7 +3,7 @@ html {
   }
   
   body {
-    font-size: 14px;
+    font-size: 20px;
     color: white;
     text-align: center;
     font-family: Helvetica,'Roboto', Arial;
@@ -20,7 +20,7 @@ html {
     display: block;
     align-self: center;
     margin: auto;
-    font-size: 14px;
+    font-size: 20px;
     padding: 5px;
     border-radius: 10%;
     border: 2px solid green;
