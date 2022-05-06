@@ -1,0 +1,36 @@
+html {
+    background: black;
+  }
+  
+  body {
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    font-family: Helvetica,'Roboto', Arial;
+    margin: 20px 5px;
+    padding: 10px;
+  }
+  
+  #main {
+    margin: 20px 5px;
+    padding: 10px;
+  }
+  
+  button {
+    display: block;
+    align-self: center;
+    margin: auto;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 10%;
+    border: 2px solid green;
+    background: black;
+    color: white;
+    transition-duration: 0.2s;
+  }
+  
+  button:hover {
+      background-color: lightgreen;
+      color: white;
+  }
+  
