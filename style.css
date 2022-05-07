@@ -3,7 +3,7 @@ html {
   }
   
   body {
-    font-size: 30px;
+    font-size: 36px;
     color: white;
     text-align: center;
     font-family: Helvetica,'Roboto', Arial;
@@ -20,13 +20,17 @@ html {
     display: block;
     align-self: center;
     margin: auto;
-    font-size: 30px;
+    font-size: 36px;
     padding: 25px;
     border-radius: 10%;
     border: 2px solid green;
     background: black;
     color: white;
     transition-duration: 0.2s;
+  }
+  
+  p {
+    font-size: 36px;  
   }
   
   button:hover {
