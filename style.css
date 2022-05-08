@@ -1,16 +1,18 @@
 * {box-sizing: border-box;}
 
 #Start {
-  top: 10px;
   background-color: rgb(0, 255, 0);
 }
 
+#start-div {
+  margin-top: 50px;
+}
 
 select {
   background-color: #555;
   color: white;
   padding: 1%;
-  font-size: 24px;
+  font-size: 28px;
   border: none;
   cursor: pointer;
   opacity: 0.8;

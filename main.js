@@ -161,6 +161,7 @@ function restartGame(){
 }
 function endGame(){
     document.getElementById("quiz").style.display = "none";
+    document.getElementById("quit").style.display = "none";
     scoreText.innerText = `End of quiz.\n\nYou scored ${score} out of ${numberOfQuestions}.`;
     document.getElementById("score").style.display = "block";
     setTimeout(() => {
@@ -182,6 +183,7 @@ function startGame(){
     difficulty = document.querySelector("#difficulty").value;
     document.getElementById("settings").style.display = "none";
     document.getElementById("score").style.display = "none";
+    document.getElementById("quiz").style.display = "none";
     currentQuestion = 1;
     score = 0;
     hideResult();
