@@ -22,20 +22,36 @@ let scoreText = document.querySelector("#score");
 let currentQuestion = 1;
 let score = 0;
 
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+    document.getElementById("open-button").style.display = "none";
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+    document.getElementById("open-button").style.display = "block";
+}
+
+
+let category = document.querySelector("#category").value;
+let difficulty = document.querySelector("#difficulty").value;
+//let category = "any";
+//let difficulty = "easy";
+
 async function getToken() {
     let tokenresponse = await fetch("https://opentdb.com/api_token.php?command=request");
     dataToken = await tokenresponse.json();
-    apiURL = ("https://opentdb.com/api.php?amount=10&category=12&difficulty=easy&type=multiple&token=" + dataToken.token);
 }
-
-getToken();
 
 // Function to get questions from API
 async function getData() {
-    wait = await getToken();
+    apiURL = ("https://opentdb.com/api.php?amount=10&type=multiple" + "&category=" + category + "&difficulty=" + difficulty + "&token=" + dataToken.token);
     let response = await fetch(apiURL);
     data = await response.json();
+    console.log(data);
+    console.log(apiURL);
     getQuestions();
+    ;
 }
 
 function getQuestions() {    
@@ -80,25 +96,25 @@ function randomiser() {
 //Function to show the correct answer
 function showAnswer () {
     correctAnswerText.innerHTML = `The answer is ${correctAnswer}`;
-    correctAnswerText.style.visibility = "initial";
-    nextQuestionButton.style.visibility = "initial";
-    playerAnswerText.style.visibility = "initial";
+    correctAnswerText.style.display = "block";
+    nextQuestionButton.style.display = "block";
+    playerAnswerText.style.display = "block";
 }
 
 //Function to show the answer boxes at the start of each round
 function showAnswerBoxes () {
-    box1.style.visibility = "initial";
-    box2.style.visibility = "initial";
-    box3.style.visibility = "initial";
-    box4.style.visibility = "initial";
+    box1.style.display = "block";
+    box2.style.display = "block";
+    box3.style.display = "block";
+    box4.style.display = "block";
 }
 
 //Function to hide the answer boxes when question is submitted
 function hideAnswerBoxes () {
-    box1.style.visibility = "hidden";
-    box2.style.visibility = "hidden";
-    box3.style.visibility = "hidden";
-    box4.style.visibility = "hidden";
+    box1.style.display = "none";
+    box2.style.display = "none";
+    box3.style.display = "none";
+    box4.style.display = "none";
 }
 
 //Function to handle the submission of the answer once player clicks on a box 
@@ -109,14 +125,14 @@ function submitAnswer(){
         playerAnswerText.innerText = `Correct!`;
         score++;
     } else {
-        playerAns.innerHTML = `Wrong. You chose ${playerAnswer}`;
+        playerAnswerText.innerHTML = `Wrong. You chose ${playerAnswer}`;
     }
 }
 //Function to hide the result of each round
 function hideResult () {
-    nextQuestionButton.style.visibility = "hidden";
-    correctAnswerText.style.visibility = "hidden";
-    playerAnswerText.style.visibility = "hidden";}
+    nextQuestionButton.style.display = "none";
+    correctAnswerText.style.display = "none";
+    playerAnswerText.style.display = "none";}
 
 //Function to advance to next question
 function nextQuestion(){
@@ -124,9 +140,9 @@ function nextQuestion(){
     if (currentQuestion === 11) {
         endGame();
     } else {
-        showAnswerBoxes();
-        hideResult();
         getQuestions();
+        hideResult();
+        showAnswerBoxes();
     };
 }
 
@@ -156,28 +172,49 @@ box4.addEventListener("click", function onClick() {
 function restartGame(){
     currentQuestion = 1;
     score = 0;
+    hideResult();
     getToken();
     getData(); 
 }
 function endGame(){
-    questionText.style.visibility = "hidden";
-    questionNumber.style.visibility = "hidden";
-    hideResult();
-    hideAnswerBoxes();
-//    scoreText.innerHTML = `Score: ${score}`;
-    alert(`End of quiz.\nYou scored ${score} out of 10.`);
-    if (confirm("Would you like to play again?") === true) {
-        questionText.style.visibility = "initial";
-        questionNumber.style.visibility = "initial";
-            showAnswerBoxes();
-        restartGame();
-
-    } else {
-        return
-    }
+    document.getElementById("quiz").style.display = "none";
+    scoreText.innerText = `End of quiz.\n\nYou scored ${score} out of 10.`;
+    document.getElementById("score").style.display = "block";
+    setTimeout(() => {
+        if (confirm("Would you like to play another round?") === true) {
+            startGame();
+    
+        } else {
+            start();
+        }
+    }, "2000")
 }
 
-hideResult();
-getData();
+//getToken();
+//hideResult();
+//getData();
 
+function startGame(){
+    category = document.querySelector("#category").value;
+    difficulty = document.querySelector("#difficulty").value;
+    document.getElementById("settings").style.display = "none";
+    document.getElementById("score").style.display = "none";
+    currentQuestion = 1;
+    score = 0;
+    hideResult();
+    getData();
+    document.getElementById("quiz").style.display = "block";
+    showAnswerBoxes();
+}
 
+function start() {
+    document.getElementById("settings").style.display = "block";
+    document.getElementById("quiz").style.display = "none";
+    document.getElementById("score").style.display = "none";
+    getToken();
+}
+
+function closeForm() {
+}
+
+start();
