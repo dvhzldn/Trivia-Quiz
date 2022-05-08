@@ -33,8 +33,6 @@ async function getData() {
     apiURL = ("https://opentdb.com/api.php?type=multiple" + "&amount=" + numberOfQuestions + "&category=" + category + "&difficulty=" + difficulty + "&token=" + dataToken.token);
     let response = await fetch(apiURL);
     data = await response.json();
-    console.log(data);
-    console.log(apiURL);
     getQuestions();
     ;
 }
