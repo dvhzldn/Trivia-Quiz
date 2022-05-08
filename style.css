@@ -1,5 +1,6 @@
 * {box-sizing: border-box;}
 
+
 #Start {
   background-color: rgb(0, 255, 0);
 }
@@ -23,12 +24,15 @@ select {
   width: auto;
 }
 
-
-#quit {
+#restart {
   position: fixed;
   top: 2%;
   right: 2%;
   width: 200px;  
+}
+
+#restart:hover {
+  background-color: red;
 }
 
 
@@ -44,10 +48,6 @@ body {
   padding: 10px;
 }
   
-#main {
-  margin: 20px 5px;
-  padding: 10px;
-}
 
 h1 {
   font-size: 40px;
@@ -59,11 +59,6 @@ h2 {
 
 h3 {
   font-size: 34px;
-}
-
-
-#next {
-  background-color: blue;
 }
 
 button {
@@ -82,9 +77,6 @@ button {
   transition-duration: 0.5s;
 }
 
-
-
-
 .answer {
   margin: auto;
   margin-bottom: 1%;
@@ -100,5 +92,6 @@ button:hover {
   background-color: rgb(0, 255, 0);
 }
   
-
-
+#Next:hover {
+  background-color: blue;
+}
