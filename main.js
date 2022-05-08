@@ -1,6 +1,6 @@
 // API address: https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple
 // API docs address: https://opentdb.com/api_config.php
-// xx
+// -----------
 // Declare variables
 
 //Define variables for HTML elements
@@ -8,35 +8,17 @@ let box1 = document.getElementById("Box1")
 let box2 = document.getElementById("Box2")
 let box3 = document.getElementById("Box3")
 let box4 = document.getElementById("Box4")
-let submitButton = document.getElementById("Submit");
 let questionText = document.getElementById("question");
 let questionNumber = document.getElementById("questionnumber");
 
 let nextQuestionButton = document.querySelector("#Next");
 let correctAnswerText = document.querySelector("#correctText");
-let playerAnswerText = document.querySelector("#playerAns");
-let scoreText = document.querySelector("#score");
-
+let playerAnswerText = document.querySelector("#playerAnswer");
+let scoreText = document.getElementById("score");
 
 //Define variables for current question and score
 let currentQuestion = 1;
 let score = 0;
-
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-    document.getElementById("open-button").style.display = "none";
-}
-
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-    document.getElementById("open-button").style.display = "block";
-}
-
-
-let category = document.querySelector("#category").value;
-let difficulty = document.querySelector("#difficulty").value;
-//let category = "any";
-//let difficulty = "easy";
 
 async function getToken() {
     let tokenresponse = await fetch("https://opentdb.com/api_token.php?command=request");
@@ -45,7 +27,10 @@ async function getToken() {
 
 // Function to get questions from API
 async function getData() {
-    apiURL = ("https://opentdb.com/api.php?amount=10&type=multiple" + "&category=" + category + "&difficulty=" + difficulty + "&token=" + dataToken.token);
+    category = document.querySelector("#category").value;
+    difficulty = document.querySelector("#difficulty").value;
+    numberOfQuestions = document.querySelector("#questionamount").value;
+    apiURL = ("https://opentdb.com/api.php?type=multiple" + "&amount=" + numberOfQuestions + "&category=" + category + "&difficulty=" + difficulty + "&token=" + dataToken.token);
     let response = await fetch(apiURL);
     data = await response.json();
     console.log(data);
@@ -137,7 +122,7 @@ function hideResult () {
 //Function to advance to next question
 function nextQuestion(){
     currentQuestion++;
-    if (currentQuestion === 11) {
+    if (currentQuestion > numberOfQuestions) {
         endGame();
     } else {
         getQuestions();
@@ -178,7 +163,7 @@ function restartGame(){
 }
 function endGame(){
     document.getElementById("quiz").style.display = "none";
-    scoreText.innerText = `End of quiz.\n\nYou scored ${score} out of 10.`;
+    scoreText.innerText = `End of quiz.\n\nYou scored ${score} out of ${numberOfQuestions}.`;
     document.getElementById("score").style.display = "block";
     setTimeout(() => {
         if (confirm("Would you like to play another round?") === true) {

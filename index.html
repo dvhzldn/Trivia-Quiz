@@ -8,9 +8,9 @@
     <h1>Quiz</h1>
     <hr />
     <div id="settings">
-        <p>Select a category</p>
+        <p>Category</p>
         <select name="trivia_category" id="category" class="button">
-            <option selected value="9">General Knowledge</option>
+            <option value="9">General Knowledge</option>
             <option value="10">Entertainment: Books</option>
             <option value="11">Entertainment: Film</option>
             <option value="12">Entertainment: Music</option>
@@ -31,11 +31,17 @@
             <option value="27">Animals</option>
             <option value="28">Vehicles</option>
         </select>
-        <p>Select a difficulty level</p>
+        <p>Difficulty level</p>
         <select name="trivia_difficulty" id="difficulty" class="button">
-        <option selected value="easy">Easy</option>
+        <option value="easy">Easy</option>
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
+        </select>
+        <p>Number of questions</p>
+        <select name="trivia_questions" id="questionamount" class="button">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
         </select>
         <hr>
         <button id="Start" class="button" onclick="startGame()">Start</button>    
@@ -51,14 +57,14 @@
         <button id="Box4" class="answer"></button>
         </div>
         <div id="Result">
-            <p id="playerAns"></p>
+            <p id="playerAnswer"></p>
             <p id="correctText"></p>
         <button id="Next" class="button" style.display="none">Next</button>    
         </div>
     </div>
 </div>  
-    <div id="score">
-        <p id="score"></p>
+    <div id="score-page">
+        <h1 id="score"></h1>
     </div>
     <div>
         <button id="quit" class="button" onclick="quit()">Restart</button>

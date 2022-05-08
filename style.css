@@ -1,18 +1,26 @@
 * {box-sizing: border-box;}
 
-select, .difficulty {
+#Start {
+  top: 10px;
+  background-color: rgb(0, 255, 0);
+}
+
+
+select {
   background-color: #555;
   color: white;
-  padding: 16px 20px;
-  font-size: 36px;
+  padding: 1%;
+  font-size: 24px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
   position: block;
   top: 2px;
   left: 2px;
+  bottom: 2px;
   width: auto;
 }
+
 
 #quit {
   position: fixed;
@@ -21,78 +29,12 @@ select, .difficulty {
   width: 200px;  
 }
 
-/* Button used to open the contact form - fixed at the bottom of the page */
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  top: 2px;
-  right: 2px;
-  width: 280px;
-}
-
-/* The popup form - hidden by default */
-.form-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-}
-
-/* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-}
-
-/* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit/login button */
-.form-container .btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
 
 html {
   background: black;
 }
 
 body {
-  font-size: 36px;
   color: white;
   text-align: center;
   font-family: Helvetica,'Roboto', Arial;
@@ -103,6 +45,18 @@ body {
 #main {
   margin: 20px 5px;
   padding: 10px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 34px;
 }
 
 
@@ -137,7 +91,7 @@ button {
 }
 
 p {
-  font-size: 36px;  
+  font-size: 30px;  
 }
 
 button:hover {
