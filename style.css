@@ -14,7 +14,12 @@ select, .difficulty {
   width: auto;
 }
 
-
+#quit {
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  width: 200px;  
+}
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {

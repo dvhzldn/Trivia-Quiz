@@ -204,17 +204,23 @@ function startGame(){
     hideResult();
     getData();
     document.getElementById("quiz").style.display = "block";
+    document.getElementById("quit").style.display = "block";
     showAnswerBoxes();
 }
 
 function start() {
     document.getElementById("settings").style.display = "block";
+    document.getElementById("quit").style.display = "none";
     document.getElementById("quiz").style.display = "none";
     document.getElementById("score").style.display = "none";
     getToken();
 }
 
 function closeForm() {
+}
+
+function quit() {
+    start();
 }
 
 start();
